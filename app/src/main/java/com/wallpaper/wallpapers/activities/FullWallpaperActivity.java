@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,6 +32,9 @@ public class FullWallpaperActivity extends AppCompatActivity implements View.OnC
 
     private ImageView wallpaperImage;
     private AdManager adManager;
+    private Button wallpaperButton;
+
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,25 +48,26 @@ public class FullWallpaperActivity extends AppCompatActivity implements View.OnC
 
         adManager = new AdManager(findViewById(android.R.id.content).getRootView());
         //adManager.showBanner(adLayout);
-    }
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        Log.d("TOTO", "RE");
+        wallpaperButton = findViewById(R.id.wallpaper_button);
+        wallpaperButton.setOnClickListener(this);
+
+        toast = Toast.makeText(this, "Wallpaper set succesfully", Toast.LENGTH_SHORT);
     }
 
     @Override
     public void onClick(View v) {
         switch(v.getId()){
-
+            case R.id.wallpaper_button:
+                setAsWallpaper();
         }
     }
 
     private void setAsWallpaper(){
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(this);
         try {
-            wallpaperManager.setBitmap(wallPaperBitmap);
+            wallpaperManager.setResource(wallpaper.full_id);
+            toast.show();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
