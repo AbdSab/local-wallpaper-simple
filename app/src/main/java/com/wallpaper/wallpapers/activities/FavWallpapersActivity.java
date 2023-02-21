@@ -31,7 +31,7 @@ public class FavWallpapersActivity extends AppCompatActivity {
         NavMenuSubActivity.getInstance(findViewById(R.id.nav_menu_main), 1);
 
         LinearLayout adLayout = findViewById(R.id.ad_layout);
-        AdManager adManager = new AdManager(findViewById(android.R.id.content).getRootView());
+        AdManager adManager = new AdManager(this, true);
         adManager.showBanner(adLayout);
 
         loadWallpapers();

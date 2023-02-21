@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         FavoriteData.getInstance().init(this);
 
         LinearLayout adLayout = findViewById(R.id.ad_layout);
-        AdManager adManager = new AdManager(findViewById(android.R.id.content).getRootView());
+        AdManager adManager = new AdManager(this, true);
         adManager.showBanner(adLayout);
 
         loadWallpapers();

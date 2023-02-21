@@ -88,8 +88,7 @@ public class FullWallpaperActivity extends AppCompatActivity implements View.OnC
             }
         });
 
-        adManager = new AdManager(findViewById(android.R.id.content).getRootView());
-        adManager.showInter();
+        adManager = new AdManager(this, true);
 
         wallpaperButton = findViewById(R.id.wallpaper_button);
         backButton = findViewById(R.id.back_button);
