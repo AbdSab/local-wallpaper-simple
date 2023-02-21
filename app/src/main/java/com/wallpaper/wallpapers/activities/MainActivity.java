@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         adManager.showBanner(adLayout);
 
         loadWallpapers();
+
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     private void loadWallpapers() {

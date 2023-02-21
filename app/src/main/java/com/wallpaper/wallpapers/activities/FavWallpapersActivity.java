@@ -35,6 +35,8 @@ public class FavWallpapersActivity extends AppCompatActivity {
         adManager.showBanner(adLayout);
 
         loadWallpapers();
+
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void loadWallpapers() {
