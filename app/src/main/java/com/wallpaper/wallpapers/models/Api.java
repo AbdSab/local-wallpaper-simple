@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface Api {
-    @GET("nature/api.json")
+    @GET("ronaldo/api.json")
     Call<List<Wallpaper>> wallpapers();
 }

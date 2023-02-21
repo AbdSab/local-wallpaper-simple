@@ -35,8 +35,8 @@ public class WallpaperService {
                 List<Wallpaper> changesList = response.body();
                 wallpapers = new ArrayList<>();
                 for(Wallpaper wallpaper: changesList) {
-                    wallpaper.full = "https://github.com/AbdSab/wallpapers/raw/master/data/nature/" + wallpaper.full;
-                    wallpaper.thumb = "https://github.com/AbdSab/wallpapers/raw/master/data/nature/" + wallpaper.thumb;
+                    wallpaper.full = "https://github.com/AbdSab/wallpapers/raw/master/data/ronaldo/" + wallpaper.full;
+                    wallpaper.thumb = "https://github.com/AbdSab/wallpapers/raw/master/data/ronaldo/" + wallpaper.thumb;
                     wallpapers.add(wallpaper);
                 }
                 onResponse.execute(wallpapers);

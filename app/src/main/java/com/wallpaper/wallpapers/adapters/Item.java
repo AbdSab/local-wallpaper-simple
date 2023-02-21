@@ -3,10 +3,10 @@ package com.wallpaper.wallpapers.adapters;
 import com.wallpaper.wallpapers.models.Wallpaper;
 
 public class Item {
-    Wallpaper wallpaper;
     int type;
+    Wallpaper wallpaper;
 
-    public Item(Wallpaper wallpaper, int type) {
+    public Item(int type, Wallpaper wallpaper) {
         this.type = type;
         this.wallpaper = wallpaper;
     }
