@@ -30,10 +30,7 @@ public class AdManager {
         this.view = view;
         this.context = this.view.getContext();
 
-        MobileAds.initialize(view.getContext(), new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
+        MobileAds.initialize(view.getContext(), initializationStatus -> {
         });
 
         interView = new InterstitialAd(this.view.getContext());

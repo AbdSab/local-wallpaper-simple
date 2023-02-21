@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 import com.wallpaper.wallpapers.R;
 import com.wallpaper.wallpapers.activities.FullWallpaperActivity;
 import com.wallpaper.wallpapers.models.Wallpaper;
@@ -38,7 +41,7 @@ public class WallpaperAdapter extends RecyclerView.Adapter<WallpaperAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.wallpaper.setImageResource(wallpaperList.get(position).thumb_id);
+        Picasso.get().load(wallpaperList.get(position).thumb).into(holder.wallpaper);
     }
 
     @Override
@@ -58,7 +61,10 @@ public class WallpaperAdapter extends RecyclerView.Adapter<WallpaperAdapter.MyVi
                 public void onClick(View v) {
                     Intent intent = new Intent(context, FullWallpaperActivity.class);
                     intent.putExtra("wallpaper", wallpaperList.get(getAdapterPosition()));
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity)context, wallpaper, "wallpaperTransition");
+                    ActivityOptions options = null;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        options = ActivityOptions.makeSceneTransitionAnimation((Activity)context, wallpaper, "wallpaperTransition");
+                    }
                     context.startActivity(intent, options.toBundle());
                 }
             });
