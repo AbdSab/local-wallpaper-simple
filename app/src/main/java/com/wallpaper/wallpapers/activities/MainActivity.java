@@ -55,7 +55,15 @@ public class MainActivity extends AppCompatActivity {
             wallpaperAdapter = new WallpaperAdapter(this, wallpapers);
             wallpaperRecycleView = findViewById(R.id.wallpaper_recycle_view);
             wallpaperRecycleView.setAdapter(wallpaperAdapter);
-            wallpaperRecycleView.setLayoutManager(new GridLayoutManager(this, 3));
+            GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
+            layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position)
+                {
+                    return position % 9 == 0 && position != 0 ? 3 : 1;
+                }
+            });
+            wallpaperRecycleView.setLayoutManager(layoutManager);
         });
     }
 }

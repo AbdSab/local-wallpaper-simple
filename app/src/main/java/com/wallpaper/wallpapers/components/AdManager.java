@@ -20,6 +20,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 public class AdManager {
     public final String bannerId = "ca-app-pub-3940256099942544/6300978111";
     public final String interId = "ca-app-pub-3940256099942544/1033173712";
+    public static final String nativeId = "ca-app-pub-3940256099942544/2247696110";
 
     private AdView bannerView;
     private InterstitialAd mInterstitialAd;
