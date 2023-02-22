@@ -40,7 +40,7 @@ public class WallpaperAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     Context context;
     List<Item> wallpaperList;
 
-    public WallpaperAdapter(Context context, List<Wallpaper> wallpapers) {
+    public WallpaperAdapter(Context context, @NonNull List<Wallpaper> wallpapers) {
         this.context = context;
         this.wallpaperList = new ArrayList<>();
         int i = 0;
@@ -51,11 +51,6 @@ public class WallpaperAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             }
             this.wallpaperList.add(new Item(WALLPAPER, wallpaper));
             i++;
-        }
-        i=0;
-        for(Item item: wallpaperList) {
-           Log.d("HOHO", i+"--"+item.type);
-           i++;
         }
     }
 

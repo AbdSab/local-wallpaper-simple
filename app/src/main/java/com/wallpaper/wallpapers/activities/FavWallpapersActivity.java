@@ -41,16 +41,14 @@ public class FavWallpapersActivity extends AppCompatActivity {
 
     private void loadWallpapers() {
         WallpaperService.wallpapers((OnResponse<List<Wallpaper>>) wallpapers -> {
-            savedWallpapers = FavoriteData.getInstance().getSavedWallpapers(wallpapers);
-            wallpaperAdapter = new WallpaperAdapter(this, savedWallpapers);
+            wallpaperAdapter = new WallpaperAdapter(this, wallpapers);
             wallpaperRecycleView = findViewById(R.id.wallpaper_recycle_view);
             wallpaperRecycleView.setAdapter(wallpaperAdapter);
             GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
             layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
-                public int getSpanSize(int position)
-                {
-                    return position % 9 == 0 && position != 0 ? 3 : 1;
+                public int getSpanSize(int i) {
+                    return ((i+1) % 16) == 0 ? 3 : 1;
                 }
             });
             wallpaperRecycleView.setLayoutManager(layoutManager);

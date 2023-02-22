@@ -50,8 +50,7 @@ public class MainActivity extends AppCompatActivity {
             GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
             layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
-                public int getSpanSize(int i)
-                {
+                public int getSpanSize(int i) {
                     return ((i+1) % 16) == 0 ? 3 : 1;
                 }
             });
